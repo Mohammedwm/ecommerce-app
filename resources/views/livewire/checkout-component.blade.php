@@ -1,27 +1,23 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
 </div>
-<!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
-            <div class="ht__bradcaump__wrap">
-                <div class="container">
+<br/>
+    <!-- Start Bradcaump area -->
+    <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="bradcaump__inner">
                                 <nav class="bradcaump-inner">
-                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <a class="breadcrumb-item" href="{{route('home')}}">Home</a>
                                   <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                  <span class="breadcrumb-item active">checkout</span>
+                                  <a class="breadcrumb-item" href="{{route('checkout')}}">checkout</a>
+
                                 </nav>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- End Bradcaump area -->
+    <!-- End Bradcaump area -->
         <!-- cart-main-area start -->
-        <div class="checkout-wrap ptb--100">
+        <div class="checkout-wrap ptb--50">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">

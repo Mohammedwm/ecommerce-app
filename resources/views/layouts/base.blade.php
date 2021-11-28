@@ -61,6 +61,7 @@
                                         <li class="drop"><a href="{{ route('shop') }}">Shop</a></li>
                                         <li class="drop"><a href="{{ route('product.cart') }}">Cart</a></li>
                                         <li class="drop"><a href="{{ route('checkout') }}">Checkout</a></li>
+                                        <li class="drop"><a href="{{ route('wishlist') }}">Wishlist</a></li>
                                         <li class="drop"><a href="#">Contact us</a></li>
                                         <li class="drop"><a href="#">About us</a></li>
                                     </ul>

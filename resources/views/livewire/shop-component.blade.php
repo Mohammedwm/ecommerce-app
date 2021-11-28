@@ -65,7 +65,6 @@
 
                                                         <li><a href="#" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})"><i class="icon-handbag icons"></i></a></li>
 
-                                                        <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="fr__product__inner">
