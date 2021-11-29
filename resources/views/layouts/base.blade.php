@@ -70,12 +70,12 @@
                                 <div class="mobile-menu clearfix visible-xs visible-sm">
                                     <nav id="mobile_dropdown">
                                         <ul>
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="blog.html">Shop</a></li>
-                                            <li><a href="#">Cart</a></li>
-                                            <li><a href="#">Checkout</a></li>
+                                            <li><a href="{{ route('home') }}">Home</a></li>
+                                            <li><a href="{{ route('shop') }}">Shop</a></li>
+                                            <li><a href="{{ route('product.cart') }}">Cart</a></li>
+                                            <li><a href="{{ route('checkout') }}">Checkout</a></li>
                                             <li><a href="#">Contact us</a></li>
-                                            <li><a href="contact.html">About us</a></li>
+                                            <li><a href="#">About us</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -115,10 +115,7 @@
                                             @endauth
                                         @endif
                                     </div>
-                                    <div class="htc__shopping__cart">
-                                        <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
-                                        <a href="#"><span class="htc__qua">{{Cart::instance('cart')->count()}}</span></a>
-                                    </div>
+                                    @livewire('cart-count-component')
                                 </div>
                             </div>
                         </div>
@@ -243,10 +240,10 @@
                                 <div class="ft__inner">
                                     <ul class="ft__list">
                                         <li><a href="#">My Account</a></li>
-                                        <li><a href="cart.html">My Cart</a></li>
-                                        <li><a href="#">Login</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
+                                        <li><a href="{{ route('product.cart') }}">My Cart</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
+                                        <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
+                                        <li><a href="{{ route('checkout') }}">Checkout</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -259,10 +256,10 @@
                                 <div class="ft__inner">
                                     <ul class="ft__list">
                                         <li><a href="#">My Account</a></li>
-                                        <li><a href="cart.html">My Cart</a></li>
-                                        <li><a href="#">Login</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
+                                        <li><a href="{{ route('product.cart') }}">My Cart</a></li>
+                                        <li><a href="{{route('login')}}">Login</a></li>
+                                        <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
+                                        <li><a href="{{ route('checkout') }}">Checkout</a></li>
                                     </ul>
                                 </div>
                             </div>
