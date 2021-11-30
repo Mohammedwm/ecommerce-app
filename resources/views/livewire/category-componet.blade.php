@@ -88,7 +88,7 @@
                                             <div class="ht__list__product">
                                                 <div class="ht__list__thumb">
                                                     <a href="{{ route('product.details', ['slug'=>$product->slug]) }}"><img src="{{ asset('assets/images/products') }}/{{$product->image}}"
-                                                        alt="{{$product->name}}" width="385" height="290"></a>
+                                                        alt="{{$product->name}}"></a>
                                                 </div>
                                                 <div class="htc__list__details">
                                                     <h2><a href="{{ route('product.details', ['slug'=>$product->slug]) }}">{{$product->name}}</a></h2>
@@ -229,15 +229,16 @@
                         <div class="htc__recent__product">
                             <h2 class="title__line--4">best seller</h2>
                             <div class="htc__recent__product__inner">
+                              @foreach ($rand_products as $r_product)
                                 <!-- Start Single Product -->
                                 <div class="htc__best__product">
                                     <div class="htc__best__pro__thumb">
-                                        <a href="product-details.html">
-                                            <img src="{{ asset('assets/images/product-2/sm-smg/1.jpg') }}" alt="small product">
+                                        <a href="{{ route('product.details', ['slug'=>$r_product->slug]) }}">
+                                            <img src="{{ asset('assets/images/products') }}/{{$r_product->image}}" alt="{{$r_product->name}}">
                                         </a>
                                     </div>
                                     <div class="htc__best__product__details">
-                                        <h2><a href="product-details.html">Product Title Here</a></h2>
+                                        <h2><a href="{{ route('product.details', ['slug'=>$r_product->slug]) }}">{{$r_product->name}}</a></h2>
                                         <ul class="rating">
                                             <li><i class="icon-star icons"></i></li>
                                             <li><i class="icon-star icons"></i></li>
@@ -246,58 +247,13 @@
                                             <li class="old"><i class="icon-star icons"></i></li>
                                         </ul>
                                         <ul  class="pro__prize">
-                                            <li class="old__prize">$82.5</li>
-                                            <li>$75.2</li>
+                                            <li class="old__prize">${{$r_product->regular_price}}</li>
+                                            <li>${{$r_product->sale_price}}</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <!-- End Single Product -->
-                                <!-- Start Single Product -->
-                                <div class="htc__best__product">
-                                    <div class="htc__best__pro__thumb">
-                                        <a href="product-details.html">
-                                            <img src="{{ asset('assets/images/product-2/sm-smg/2.jpg') }}" alt="small product">
-                                        </a>
-                                    </div>
-                                    <div class="htc__best__product__details">
-                                        <h2><a href="product-details.html">Product Title Here</a></h2>
-                                        <ul class="rating">
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                        </ul>
-                                        <ul  class="pro__prize">
-                                            <li class="old__prize">$82.5</li>
-                                            <li>$75.2</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                                <!-- Start Single Product -->
-                                <div class="htc__best__product">
-                                    <div class="htc__best__pro__thumb">
-                                        <a href="product-details.html">
-                                            <img src="{{ asset('assets/images/product-2/sm-smg/1.jpg') }}" alt="small product">
-                                        </a>
-                                    </div>
-                                    <div class="htc__best__product__details">
-                                        <h2><a href="product-details.html">Product Title Here</a></h2>
-                                        <ul class="rating">
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                        </ul>
-                                        <ul  class="pro__prize">
-                                            <li class="old__prize">$82.5</li>
-                                            <li>$75.2</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
+                                @endforeach
                             </div>
                         </div>
                         <!-- End Best Sell Area -->

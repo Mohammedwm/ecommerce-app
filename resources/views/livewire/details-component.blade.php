@@ -27,8 +27,7 @@
                                 <div class="product__big__images">
                                     <div class="portfolio-full-image tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
-                                            <img src="{{ asset('assets/images/products') }}/{{$product->image}}" alt="{{$product->name}}"
-                                                width="510" height="677">
+                                            <img src="{{ asset('assets/images/products') }}/{{$product->image}}" alt="{{$product->name}}">
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="img-tab-2">
                                             <img src="{{ asset('assets/images/product-2/big-img/2.jpg') }}" alt="full-image">
@@ -227,7 +226,7 @@
                                 <div class="ht__cat__thumb">
                                     <a href="{{ route('product.details', ['slug'=>$p_product->slug]) }}">
                                         <img src="{{ asset('assets/images/products') }}/{{$p_product->image}}"
-                                            alt="{{$p_product->name}}" width="385" height="290">
+                                            alt="{{$p_product->name}}">
                                     </a>
                                 </div>
                                 <div class="fr__hover__info">

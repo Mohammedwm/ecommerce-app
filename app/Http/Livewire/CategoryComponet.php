@@ -48,7 +48,9 @@ class CategoryComponet extends Component
         }
 
         $categories = Category::all();
-        return view('livewire.category-componet',['products' => $products ,'categories' => $categories , 'category_name'=>$category_name])->layout('layouts.base');
+        $rand_products = Product::inRandomOrder()->limit(3)->get();
+        return view('livewire.category-componet',['products' => $products ,
+        'rand_products'=>$rand_products,'categories' => $categories , 'category_name'=>$category_name])->layout('layouts.base');
     }
 }
 

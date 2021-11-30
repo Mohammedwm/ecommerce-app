@@ -20,8 +20,7 @@
                         </div>
                         <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
                             <div class="slide__thumb">
-                                <img src="{{ asset('assets/images/sliders') }}/{{$slider->image}}" alt="{{$slider->title}}"
-                                    width="628" height="472">
+                                <img src="{{ asset('assets/images/sliders') }}/{{$slider->image}}" alt="{{$slider->title}}">
                             </div>
                         </div>
                     </div>
@@ -52,7 +51,7 @@
                                     <div class="ht__cat__thumb">
                                         <a href="{{ route('product.details', ['slug'=>$lproduct->slug]) }}">
                                             <img src="{{ asset('assets/images/products') }}/{{$lproduct->image}}"
-                                            alt="{{$lproduct->name}}" width="385" height="290">
+                                            alt="{{$lproduct->name}}">
                                         </a>
                                     </div>
                                     <div class="fr__hover__info">

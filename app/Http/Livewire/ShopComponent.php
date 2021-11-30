@@ -69,6 +69,8 @@ class ShopComponent extends Component
         }
 
         $categories = Category::all();
-        return view('livewire.shop-component',['products' => $products ,'categories' => $categories])->layout('layouts.base');
+        $rand_products = Product::inRandomOrder()->limit(3)->get();
+        return view('livewire.shop-component',['products' => $products ,
+            'rand_products'=>$rand_products,'categories' => $categories])->layout('layouts.base');
     }
 }
