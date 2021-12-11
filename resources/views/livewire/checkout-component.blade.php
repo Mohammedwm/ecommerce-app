@@ -60,7 +60,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                {{-- <div class="col-md-5">
                                                     <div class="checkout-method__login">
                                                         <form action="#">
                                                             <h5 class="checkout-method__title">Login</h5>
@@ -81,7 +81,7 @@
                                                             </div>
                                                         </form>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -336,39 +336,29 @@
                         <div class="order-details">
                             <h5 class="order-details__title">Your Order</h5>
                             <div class="order-details__item">
+                            @foreach (Cart::instance('cart')->content() as $item)
                                 <div class="single-item">
                                     <div class="single-item__thumb">
-                                        <img src="images/cart/1.png" alt="ordered item">
+                                        <img src="{{ asset('assets/images/products') }}/{{$item->model->image}}" alt="{{$item->model->name}}">
                                     </div>
                                     <div class="single-item__content">
-                                        <a href="#">Santa fe jacket for men</a>
-                                        <span class="price">$128</span>
+                                        <a href="{{ route('product.details', ['slug'=>$item->model->slug]) }}">{{$item->model->name}}</a>
+                                        <span class="price">${{$item->model->sale_price}}</span>
                                     </div>
                                     <div class="single-item__remove">
-                                        <a href="#"><i class="zmdi zmdi-delete"></i></a>
+                                        <a href="wire:click.prevent="destroy('{{$item->rowId}}')"><i class="zmdi zmdi-delete"></i></a>
                                     </div>
                                 </div>
-                                <div class="single-item">
-                                    <div class="single-item__thumb">
-                                        <img src="images/cart/2.png" alt="ordered item">
-                                    </div>
-                                    <div class="single-item__content">
-                                        <a href="#">Santa fe jacket for men</a>
-                                        <span class="price">$128</span>
-                                    </div>
-                                    <div class="single-item__remove">
-                                        <a href="#"><i class="zmdi zmdi-delete"></i></a>
-                                    </div>
-                                </div>
+                            @endforeach
                             </div>
                             <div class="order-details__count">
                                 <div class="order-details__count__single">
                                     <h5>sub total</h5>
-                                    <span class="price">$909.00</span>
+                                    <span class="price">${{Cart::instance('cart')->subtotal()}}</span>
                                 </div>
                                 <div class="order-details__count__single">
                                     <h5>Tax</h5>
-                                    <span class="price">$9.00</span>
+                                    <span class="price">${{Cart::instance('cart')->tax()}}</span>
                                 </div>
                                 <div class="order-details__count__single">
                                     <h5>Shipping</h5>
@@ -377,7 +367,7 @@
                             </div>
                             <div class="ordre-details__total">
                                 <h5>Order total</h5>
-                                <span class="price">$918.00</span>
+                                <span class="price">${{Cart::instance('cart')->total()}}</span>
                             </div>
                         </div>
                     </div>
