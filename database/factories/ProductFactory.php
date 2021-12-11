@@ -23,13 +23,16 @@ class ProductFactory extends Factory
     public function definition()
     {
         $product_name = $this->faker->unique()->words($nb=2,$asText=true);
+        $regular_price = $this->faker->numberBetween(100,500);
+        $sale_price = $regular_price-$this->faker->numberBetween(10,90);
         $slug = Str::slug($product_name);
         return [
             'name' => $product_name,
             'slug' => $slug,
             'short_description' => $this->faker->text(200),
             'description' => $this->faker->text(200),
-            'regular_price' => $this->faker->numberBetween(10,500),
+            'regular_price' => $regular_price,
+            'sale_price' => $sale_price,
             'SKU' => 'DIGI'.$this->faker->unique()->numberBetween(100,500),
             'stock_status' => 'instock',
             'quantity' => $this->faker->numberBetween(100,200),
