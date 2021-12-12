@@ -234,7 +234,6 @@
                                         <li><a href="#" wire:click.prevent="addToWishlist({{$p_product->id}},'{{$p_product->name}}',{{$p_product->sale_price}})"><i class="icon-heart icons"></i></a></li>
 
                                         <li><a href="#" wire:click.prevent="store({{$p_product->id}},'{{$p_product->name}}',{{$p_product->sale_price}})"><i class="icon-handbag icons"></i></a></li>
-
                                     </ul>
                                 </div>
                                 <div class="fr__product__inner">

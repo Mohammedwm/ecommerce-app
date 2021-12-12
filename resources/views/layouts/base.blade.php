@@ -97,9 +97,9 @@
                                                                 <li><a href="{{ route('admin.categories') }}">Categories</a></li>
                                                                 <li><a href="{{ route('admin.products') }}">All Products</a></li>
                                                                 <li><a href="{{ route('admin.homeslider') }}">Manger Home Slider</a></li>
-                                                                <li><a href="{{ route('admin.homecategories') }}">Manger Home Categories</a></li>
-                                                                {{-- <li><a href="{{ route('admin.sale') }}">Sale Setting</a></li>
-                                                                <li><a href="{{ route('admin.coupons') }}">All Coupon</a></li>
+                                                                {{--<li><a href="{{ route('admin.homecategories') }}">Manger Home Categories</a></li>--}}
+                                                                <li><a href="{{ route('admin.sale') }}">Sale Setting</a></li>
+                                                                {{--<li><a href="{{ route('admin.coupons') }}">All Coupon</a></li>
                                                                 <li><a href="{{ route('admin.orders') }}">All Orders</a></li> --}}
                                                             @else
                                                                 <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
