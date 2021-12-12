@@ -62,7 +62,7 @@
                                                 </div>
                                                 <div class="fr__hover__info">
                                                     <ul class="product__action">
-                                                        <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
+                                                        <li><a href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->sale_price}})"><i class="icon-heart icons"></i></a></li>
 
                                                         <li><a href="#" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->sale_price}})"><i class="icon-handbag icons"></i></a></li>
 

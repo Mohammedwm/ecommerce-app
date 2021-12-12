@@ -1,17 +1,17 @@
 <div>
-<br/>
+    <br/>
  <!-- Start Bradcaump area -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                                <nav class="bradcaump-inner">
-                                  <a class="breadcrumb-item" href="index.html">Home</a>
-                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                  <span class="breadcrumb-item active">shopping cart</span>
-                                </nav>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="bradcaump-inner">
+                    <a class="breadcrumb-item" href="i{{route('home')}}"">Home</a>
+                    <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                    <span class="breadcrumb-item active">shopping cart</span>
+                </nav>
+            </div>
+        </div>
+    </div>
         <!-- End Bradcaump area -->
     <div class="cart-main-area ptb--50 bg__white">
             <div class="container">

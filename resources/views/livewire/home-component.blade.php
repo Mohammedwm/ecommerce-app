@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="fr__hover__info">
                                         <ul class="product__action">
-                                            <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
+                                            <li><a href="#" wire:click.prevent="addToWishlist({{$lproduct->id}},'{{$lproduct->name}}',{{$lproduct->sale_price}})"><i class="icon-heart icons"></i></a></li>
 
                                             <li><a href="#" wire:click.prevent="store({{$lproduct->id}},'{{$lproduct->name}}',{{$lproduct->sale_price}})"><i class="icon-handbag icons"></i></a></li>
 
@@ -105,7 +105,7 @@
                             </div>
                             <div class="fr__hover__info">
                                 <ul class="product__action">
-                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
+                                    <li><a href="#" wire:click.prevent="addToWishlist({{$bsproduct->id}},'{{$bsproduct->name}}',{{$bsproduct->sale_price}})"><i class="icon-heart icons"></i></a></li>
 
                                     <li><a href="#" wire:click.prevent="store({{$bsproduct->id}},'{{$bsproduct->name}}',{{$bsproduct->sale_price}})"><i class="icon-handbag icons"></i></a></li>
                                 </ul>
@@ -195,21 +195,21 @@
                 <div class="col-lg-12">
                     <div class="section__title--2 text-center">
                         <h2 class="title__line">Top Rated</h2>
-                        <p>But I must explain to you</p>
                     </div>
                 </div>
             </div>
             <div class="row mt--20">
+            @foreach ($trproducts as $trproduct)
                 <!-- Start Single Product -->
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="htc__best__product">
                         <div class="htc__best__pro__thumb">
-                            <a href="product-details.html">
-                                <img src="{{ asset('assets/images/product-2/sm-img-2/1.jpg') }}" alt="small product">
+                            <a href="{{ route('product.details', ['slug'=>$trproduct->slug]) }}">
+                                <img src="{{ asset('assets/images/products') }}/{{$trproduct->image}}" alt="{{$trproduct->name}}">
                             </a>
                         </div>
                         <div class="htc__best__product__details">
-                            <h2><a href="product-details.html">dummy Product title</a></h2>
+                            <h2><a href="{{ route('product.details', ['slug'=>$trproduct->slug]) }}">{{$trproduct->name}}</a></h2>
                             <ul class="rating">
                                 <li><i class="icon-star icons"></i></li>
                                 <li><i class="icon-star icons"></i></li>
@@ -218,81 +218,20 @@
                                 <li class="old"><i class="icon-star icons"></i></li>
                             </ul>
                             <ul  class="top__pro__prize">
-                                <li class="old__prize">$82.5</li>
-                                <li>$75.2</li>
+                                <li class="old__prize">${{$bsproduct->regular_price}}</li>
+                                <li>${{$bsproduct->sale_price}}</li>
                             </ul>
                             <div class="best__product__action">
                                 <ul class="product__action--dft">
-                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
+                                    <li><a href="#" wire:click.prevent="addToWishlist({{$bsproduct->id}},'{{$bsproduct->name}}',{{$bsproduct->sale_price}})"><i class="icon-heart icons"></i></a></li>
+                                    <li><a href="#" wire:click.prevent="store({{$bsproduct->id}},'{{$bsproduct->name}}',{{$bsproduct->sale_price}})"><i class="icon-handbag icons"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- End Single Product -->
-                <!-- Start Single Product -->
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="htc__best__product">
-                        <div class="htc__best__pro__thumb">
-                            <a href="product-details.html">
-                                <img src="{{ asset('assets/images/product-2/sm-img-2/2.jpg') }}" alt="small product">
-                            </a>
-                        </div>
-                        <div class="htc__best__product__details">
-                            <h2><a href="product-details.html">dummy Product title</a></h2>
-                            <ul class="rating">
-                                <li><i class="icon-star icons"></i></li>
-                                <li><i class="icon-star icons"></i></li>
-                                <li><i class="icon-star icons"></i></li>
-                                <li class="old"><i class="icon-star icons"></i></li>
-                                <li class="old"><i class="icon-star icons"></i></li>
-                            </ul>
-                            <ul  class="top__pro__prize">
-                                <li class="old__prize">$82.5</li>
-                                <li>$75.2</li>
-                            </ul>
-                            <div class="best__product__action">
-                                <ul class="product__action--dft">
-                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
-                <!-- Start Single Product -->
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="htc__best__product">
-                        <div class="htc__best__pro__thumb">
-                            <a href="product-details.html">
-                                <img src="{{ asset('assets/images/product-2/sm-img-2/3.jpg') }}" alt="small product">
-                            </a>
-                        </div>
-                        <div class="htc__best__product__details">
-                            <h2><a href="product-details.html">dummy Product title</a></h2>
-                            <ul class="rating">
-                                <li><i class="icon-star icons"></i></li>
-                                <li><i class="icon-star icons"></i></li>
-                                <li><i class="icon-star icons"></i></li>
-                                <li class="old"><i class="icon-star icons"></i></li>
-                                <li class="old"><i class="icon-star icons"></i></li>
-                            </ul>
-                            <ul  class="top__pro__prize">
-                                <li class="old__prize">$82.5</li>
-                                <li>$75.2</li>
-                            </ul>
-                            <div class="best__product__action">
-                                <ul class="product__action--dft">
-                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Product -->
+            @endforeach
             </div>
         </div>
     </section>
