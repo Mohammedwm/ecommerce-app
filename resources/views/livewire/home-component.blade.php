@@ -218,13 +218,13 @@
                                 <li class="old"><i class="icon-star icons"></i></li>
                             </ul>
                             <ul  class="top__pro__prize">
-                                <li class="old__prize">${{$bsproduct->regular_price}}</li>
-                                <li>${{$bsproduct->sale_price}}</li>
+                                <li class="old__prize">${{$trproduct->regular_price}}</li>
+                                <li>${{$trproduct->sale_price}}</li>
                             </ul>
                             <div class="best__product__action">
                                 <ul class="product__action--dft">
-                                    <li><a href="#" wire:click.prevent="addToWishlist({{$bsproduct->id}},'{{$bsproduct->name}}',{{$bsproduct->sale_price}})"><i class="icon-heart icons"></i></a></li>
-                                    <li><a href="#" wire:click.prevent="store({{$bsproduct->id}},'{{$bsproduct->name}}',{{$bsproduct->sale_price}})"><i class="icon-handbag icons"></i></a></li>
+                                    <li><a href="#" wire:click.prevent="addToWishlist({{$trproduct->id}},'{{$trproduct->name}}',{{$trproduct->sale_price}})"><i class="icon-heart icons"></i></a></li>
+                                    <li><a href="#" wire:click.prevent="store({{$trproduct->id}},'{{$trproduct->name}}',{{$trproduct->sale_price}})"><i class="icon-handbag icons"></i></a></li>
                                 </ul>
                             </div>
                         </div>
