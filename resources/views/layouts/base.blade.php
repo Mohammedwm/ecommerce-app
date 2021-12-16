@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }} ">
     <!-- User style -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }} ">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
 
     @livewireStyles
     <!-- Modernizr JS -->

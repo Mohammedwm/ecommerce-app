@@ -140,15 +140,15 @@
                             <div class="content-shopby">
                                 <div class="price_filter s-filter clear">
                                     <form action="#" method="GET">
-                                        <div id="slider-range"></div>
+                                        <div id="slider-range" wire:ignore></div>
                                         <div class="slider__range--output">
                                             <div class="price__output--wrap">
                                                 <div class="price--output">
                                                     <span>Price :</span><input type="text" id="amount" readonly>
                                                 </div>
-                                                <div class="price--filter">
+                                                {{-- <div class="price--filter">
                                                     <a href="#">Filter</a>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </form>
@@ -300,3 +300,22 @@
     <!-- End Banner Area -->
 
 </div>
+@push('scripts')
+<script>
+    $("#slider-range").slider({
+           range: true,
+           min: 10,
+           max: 1000,
+           values: [210, 500],
+           slide: function(event, ui) {
+               $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                @this.set('min_price',ui.values[0]);
+                @this.set('max_price',ui.values[1]);
+           }
+     });
+     $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+       " - $" + $("#slider-range").slider("values", 1));
+
+</script>
+@endpush
+
