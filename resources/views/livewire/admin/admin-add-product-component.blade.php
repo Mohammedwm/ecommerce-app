@@ -43,15 +43,15 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Short Description</label>
-                                <div class="col-md-4">
-                                    <textarea class="form-control input-md" placeholder="Short Description" wire:model="short_description"></textarea>
+                                <div class="col-md-4" wire:ignore>
+                                    <textarea name="content" data-provide="markdown" rows="10" data-width="600" class="form-control" wire:model="short_description"></textarea>
                                     @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Description</label>
-                                <div class="col-md-4">
-                                    <textarea class="form-control input-md" placeholder="Description" wire:model="description"></textarea>
+                                <div class="col-md-4" wire:ignore>
+                                    <textarea name="content" data-provide="markdown" rows="10" data-width="600" class="form-control" wire:model="description"></textarea>
                                     @error('description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
@@ -138,3 +138,8 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+
+    </script>
+@endpush

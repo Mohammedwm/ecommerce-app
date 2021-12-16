@@ -40,15 +40,17 @@
                             </div>
                             <!-- Start List And Grid View -->
                             <ul class="view__mode" role="tablist">
-                                <li role="presentation" class="grid-view active"><a href="#grid-view" role="tab" data-toggle="tab"><i class="zmdi zmdi-grid"></i></a></li>
-                                <li role="presentation" class="list-view"><a href="#list-view" role="tab" data-toggle="tab"><i class="zmdi zmdi-view-list"></i></a></li>
+                                <li role="presentation" class="grid-view  @if ($type_view =='grid'){ active }@endif"><a href="#grid-view" role="tab" data-toggle="tab"
+                                    wire:click.prevent="ChangeTypeView('grid')"><i class="zmdi zmdi-grid"></i></a></li>
+                                <li role="presentation" class="list-view @if ($type_view =='list'){ active }@endif "><a href="#list-view" role="tab" data-toggle="tab"
+                                    wire:click.prevent="ChangeTypeView('list')"><i class="zmdi zmdi-view-list"></i></a></li>
                             </ul>
                             <!-- End List And Grid View -->
                         </div>
                         <!-- Start Product View -->
                         <div class="row">
                             <div class="shop__grid__view__wrap">
-                                <div role="tabpanel" id="grid-view" class="single-grid-view tab-pane fade in active clearfix">
+                                <div role="tabpanel" id="grid-view" class="single-grid-view tab-pane fade clearfix @if ($type_view =='grid'){ in active }@endif">
                                     @foreach ($products as $product)
                                     <!-- Start Single Product -->
                                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
@@ -79,7 +81,7 @@
                                     <!-- End Single Product -->
                                     @endforeach
                                 </div>
-                                <div role="tabpanel" id="list-view" class="single-grid-view tab-pane fade clearfix">
+                                <div role="tabpanel" id="list-view" class="single-grid-view tab-pane fade clearfix @if ($type_view =='list'){ in active }@endif">
                                     <div class="col-xs-12">
                                         <div class="ht__list__wrap">
                                             @foreach ($products as $product)
