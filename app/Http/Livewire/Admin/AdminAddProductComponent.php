@@ -92,5 +92,6 @@ class AdminAddProductComponent extends Component
         $product->category_id = $this->category_id;
         $product->save();
         session()->flash('message','Product has been created successfull!');
+        return redirect()->route('admin.products');
     }
 }

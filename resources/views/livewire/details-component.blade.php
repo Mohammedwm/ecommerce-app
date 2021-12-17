@@ -74,7 +74,7 @@
                                     <li class="old__prize">${{$product->regular_price}}</li>
                                     <li>${{$product->sale_price}}</li>
                                 </ul>
-                                <p class="pro__info">{{$product->short_description}}</p>
+                                <p class="pro__info">{!! $product->short_description !!}</p>
                                 <div class="ht__pro__desc">
                                     <div class="sin__desc">
                                         <p><span>Availability:</span> {{$product->stock_status}}</p>
@@ -171,7 +171,7 @@
                             <!-- Start Single Content -->
                             <div role="tabpanel" id="description" class="pro__single__content tab-pane fade in active">
                                 <div class="pro__tab__content__inner">
-                                    <p>{{$product->description}}</p>
+                                    <p>{!! $product->description !!}</p>
                                 </div>
                             </div>
                             <!-- End Single Content -->

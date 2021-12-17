@@ -44,14 +44,14 @@
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Short Description</label>
                                 <div class="col-md-4" wire:ignore>
-                                    <textarea name="content" data-provide="markdown" rows="10" data-width="600" class="form-control" wire:model="short_description"></textarea>
+                                    <textarea name="short_description" id="short_description" wire:model="short_description">{!!$short_description!!}</textarea>
                                     @error('short_description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-4 control-label">Description</label>
                                 <div class="col-md-4" wire:ignore>
-                                    <textarea name="content" data-provide="markdown" rows="10" data-width="600" class="form-control" wire:model="description"></textarea>
+                                    <textarea name="description" id="description" wire:model="description">{!!$description!!}</textarea>
                                     @error('description') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>
@@ -140,6 +140,21 @@
 </div>
 @push('scripts')
     <script>
-
+        $('#short_description').summernote({
+            height: 300,
+            callbacks: {
+                onChange: function(contents, $editable) {
+                    @this.set('short_description', contents);
+                }
+            }
+        });
+        $('#description').summernote({
+            height: 300,
+            callbacks: {
+                onChange: function(contents, $editable) {
+                    @this.set('description', contents);
+                }
+            }
+        });
     </script>
 @endpush

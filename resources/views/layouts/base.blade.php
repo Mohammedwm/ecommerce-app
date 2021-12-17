@@ -30,8 +30,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }} ">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/nouislider.min.css')}}">
 
-
-    <link href="{{asset('assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/plugins/bootstrap-summernote/summernote.css') }}" rel="stylesheet" type="text/css" />
     @livewireStyles
     <!-- Modernizr JS -->
     <script src="{{ asset('assets/js/vendor/modernizr-3.5.0.min.js') }} "></script>
@@ -327,9 +326,7 @@
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
-    <script src="{{ asset('assets/plugins/bootstrap-markdown/lib/markdown.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js') }}" type="text/javascript"></script>
-
+    <script src="{{asset('assets/plugins/bootstrap-summernote/summernote.min.js') }}" type="text/javascript"></script>
     @livewireScripts
 
     @stack('scripts')
