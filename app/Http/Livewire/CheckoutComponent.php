@@ -46,6 +46,13 @@ class CheckoutComponent extends Component
     public $exp_year;
     public $cvc;
 
+    public function Change_ShipToDifferent(){
+        if($this->ship_to_different){
+            $this->ship_to_different = 0;
+        }else{
+            $this->ship_to_different = 1;
+        }
+    }
     public function updated($fileds)
     {
         $this->validateOnly($fileds,[

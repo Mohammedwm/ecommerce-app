@@ -1,128 +1,64 @@
 <div>
     {{-- If your happiness depends on money, you will never be happy with yourself. --}}
-</div>
 <br/>
     <!-- Start Bradcaump area -->
     <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                                <nav class="bradcaump-inner">
-                                  <a class="breadcrumb-item" href="{{route('home')}}">Home</a>
-                                  <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                  <a class="breadcrumb-item" href="{{route('checkout')}}">checkout</a>
-
-                                </nav>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="bradcaump-inner">
+                    <a class="breadcrumb-item" href="{{route('home')}}">Home</a>
+                    <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                    <a class="breadcrumb-item" href="{{route('checkout')}}">checkout</a>
+                </nav>
+            </div>
+        </div>
+    </div>
     <!-- End Bradcaump area -->
-        <!-- cart-main-area start -->
-        <div class="checkout-wrap ptb--50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="checkout__inner">
-                            <div class="accordion-list">
-                                <div class="accordion">
-                                    {{-- <div class="accordion__title">
-                                        Checkout Method
-                                    </div>
-                                    <div class="accordion__body">
-                                        <div class="accordion__body__form">
+    <!-- cart-main-area start -->
+    <div class="checkout-wrap ptb--50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="checkout__inner">
+                        <div class="accordion-list">
+                            <div class="accordion">
+                                <div class="accordion__title">
+                                    Billing Information
+                                </div>
+                                <div class="accordion__body">
+                                    <div class="bilinfo">
+                                        <form action="#">
                                             <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="checkout-method">
-                                                        <form action="#">
-                                                            <div class="checkout-method__single">
-                                                                <h5 class="checkout-method__title"><i class="zmdi zmdi-caret-right"></i>CHECKOUT AS A GUEST OR REGISTER</h5>
-                                                                <p class="checkout-method__subtitle">Register with us for future convenience:</p>
-                                                                <div class="single-input">
-                                                                    <input type="radio" id="checkout-method-1" name="checkout-method" checked="checked">
-                                                                    <label for="checkout-method-1">Checkout as guest</label>
-                                                                </div>
-                                                                <div class="single-input">
-                                                                    <input type="radio" id="checkout-method-2" name="checkout-method">
-                                                                    <label for="checkout-method-2">Register</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="checkout-method__single">
-                                                                <h5 class="checkout-method__title"><i class="zmdi zmdi-caret-right"></i>REGISTER AND SAVE TIME</h5>
-                                                                <p class="checkout-method__subtitle">Register with us for future convenience:</p>
-                                                                <div class="single-input">
-                                                                    <input type="radio" id="register-method-1" name="register-method" checked="checked">
-                                                                    <label for="register-method-1">Fast and easy check out</label>
-                                                                </div>
-                                                                <div class="single-input">
-                                                                    <input type="radio" id="register-method-2" name="register-method">
-                                                                    <label for="register-method-2">Easy access to your order history and status</label>
-                                                                </div>
-                                                            </div>
-                                                        </form>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <input type="text" placeholder="First name" name="fname" wire:model="firstname">
+                                                        @error('firstname') <span class="text-danger">{{$message}}</span>  @enderror
                                                     </div>
                                                 </div>
-                                                 <div class="col-md-5">
-                                                    <div class="checkout-method__login">
-                                                        <form action="#">
-                                                            <h5 class="checkout-method__title">Login</h5>
-                                                            <h5 class="checkout-method__title">Already Registered?</h5>
-                                                            <p class="checkout-method__subtitle">Please login below:</p>
-                                                            <div class="single-input">
-                                                                <label for="user-email">Email Address</label>
-                                                                <input type="email" id="user-email">
-                                                            </div>
-                                                            <div class="single-input">
-                                                                <label for="user-pass">Password</label>
-                                                                <input type="password" id="user-pass">
-                                                            </div>
-                                                            <p class="require">* Required fields</p>
-                                                            <a href="#">Forgot Passwords?</a>
-                                                            <div class="dark-btn">
-                                                                <a href="#">LogIn</a>
-                                                            </div>
-                                                        </form>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <input type="text" name="lname" value="" placeholder="Last name" wire:model="lastname">
+                                                        @error('lastname') <span class="text-danger">{{$message}}</span>  @enderror
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    --}}
-                                    <div class="accordion__title">
-                                        Billing Information
-                                    </div>
-                                    <div class="accordion__body">
-                                        <div class="bilinfo">
-                                            <form action="#">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="single-input">
-                                                            <input type="text" placeholder="First name" name="fname" wire:model="firstname">
-                                                            @error('firstname') <span class="text-danger">{{$message}}</span>  @enderror
-                                                        </div>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <input type="email" placeholder="Email address" name="email" wire:model="email">
+                                                        @error('email') <span class="text-danger">{{$message}}</span>  @enderror
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="single-input">
-                                                            <input type="text" name="lname" value="" placeholder="Last name" wire:model="lastname">
-                                                            @error('lastname') <span class="text-danger">{{$message}}</span>  @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="single-input">
-                                                            <input type="email" placeholder="Email address" name="email" wire:model="email">
-                                                            @error('email') <span class="text-danger">{{$message}}</span>  @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="single-input">
-                                                            <input type="number" class="col-md-12" name="phone" value="" placeholder="Phone number" wire:model="mobile">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <input type="number" class="col-md-12" name="phone" value="" placeholder="Phone number" wire:model="mobile">
                                                             @error('mobile') <span class="text-danger">{{$message}}</span>  @enderror
-                                                        </div>
                                                     </div>
-                                                    <div class="col-md-12">
-                                                        <div class="single-input">
-                                                            <input type="text" placeholder="Line1" name="add" wire:model="line1">
-                                                            @error('line1') <span class="text-danger">{{$message}}</span>  @enderror
-                                                        </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <input type="text" placeholder="Line1" name="add" wire:model="line1">
+                                                        @error('line1') <span class="text-danger">{{$message}}</span>  @enderror
                                                     </div>
+                                                </div>
                                                     <div class="col-md-12">
                                                         <div class="single-input">
                                                             <input type="text" placeholder="Line2" name="add" wire:model="line2">
@@ -163,66 +99,69 @@
                                     <div class="accordion__body">
                                         <div class="shipinfo">
                                             <h3 class="shipinfo__title">Shipping Address</h3>
-                                            <p><b>Address:</b>{!!$country !!}, Banasree D-Block, Dhaka 1219, Bangladesh</p>
-                                            <a href="#" class="ship-to-another-trigger"><i class="zmdi zmdi-long-arrow-right"></i>Ship to another address</a>
-                                            <div class="ship-to-another-content">
+                                            <p><b>Address :</b> {{$country}}, {{$province}}, {{$city}}, {{$zipcode}}</p>
+                                            <a href="#" class="ship-to-another-trigger" wire:click.prevent="Change_ShipToDifferent"><i class="zmdi zmdi-long-arrow-right"></i>Ship to another address</a>
+                                            <div class="ship-to-another-content" @if ($ship_to_different) style="display: block;" @endif>
                                                 <form action="#">
                                                     <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="single-input mt-0">
-                                                                <select name="bil-country" id="another-bil-country">
-                                                                    <option value="select">Select your country</option>
-                                                                    <option value="arb">Arab Emirates</option>
-                                                                    <option value="ban">Bangladesh</option>
-                                                                    <option value="ind">India</option>
-                                                                    <option value="uk">United Kingdom</option>
-                                                                    <option value="usa">United States</option>
-                                                                </select>
+                                                        <div class="col-md-6">
+                                                            <div class="single-input">
+                                                                <input type="text" placeholder="First name" name="fname" wire:model="s_firstname">
+                                                                @error('s_firstname') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="First name">
+                                                                <input type="text" name="lname" value="" placeholder="Last name" wire:model="s_lastname">
+                                                                @error('s_lastname') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="Last name">
+                                                                <input type="email" placeholder="Email address" name="email" wire:model="s_email">
+                                                                @error('s_email') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-6">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="Company name">
+                                                                <input type="number" class="col-md-12" name="phone" value="" placeholder="Phone number" wire:model="s_mobile">
+                                                                    @error('s_mobile') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="Street Address">
+                                                                <input type="text" placeholder="Line1" name="add" wire:model="s_line1">
+                                                                @error('s_line1') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="Apartment/Block/House (optional)">
+                                                                <input type="text" placeholder="Line2" name="add" wire:model="s_line2">
+                                                                @error('s_line2') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="City/State">
+                                                                <input type="text" name="country" placeholder="Country" name="add" wire:model="s_country">
+                                                                @error('s_country') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="Post code/ zip">
+                                                                <input type="text" name="province" placeholder="Province" wire:model="s_province">
+                                                                @error('s_province') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="email" placeholder="Email address">
+                                                                <input type="text" name="city" placeholder="City" wire:model="s_city">
+                                                                @error('s_city') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="Phone number">
+                                                                <input type="text" name="zip-code" placeholder="Postcode / ZIP" wire:model="s_zipcode">
+                                                                @error('s_zipcode') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
                                                     </div>
@@ -230,7 +169,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion__title">
+                                    {{-- <div class="accordion__title">
                                         shipping method
                                     </div>
                                     <div class="accordion__body">
@@ -252,15 +191,15 @@
                                                 </div>
                                             </form>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="accordion__title">
                                         payment information
                                     </div>
                                     <div class="accordion__body">
                                         <div class="paymentinfo">
-                                            <div class="single-method">
+                                            {{-- <div class="single-method">
                                                 <a href="#"><i class="zmdi zmdi-long-arrow-right"></i>Check/ Money Order</a>
-                                            </div>
+                                            </div> --}}
                                             <div class="single-method">
                                                 <a href="#" class="paymentinfo-credit-trigger"><i class="zmdi zmdi-long-arrow-right"></i>Credit Card</a>
                                             </div>
@@ -336,11 +275,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="order-details">
-                            <h5 class="order-details__title">Your Order</h5>
-                            <div class="order-details__item">
-                            @foreach (Cart::instance('cart')->content() as $item)
+                <div class="col-md-4">
+                    <div class="order-details">
+                        <h5 class="order-details__title">Your Order</h5>
+                        <div class="order-details__item">
+                        @foreach (Cart::instance('cart')->content() as $item)
                                 <div class="single-item">
                                     <div class="single-item__thumb">
                                         <img src="{{ asset('assets/images/products') }}/{{$item->model->image}}" alt="{{$item->model->name}}">
@@ -353,29 +292,30 @@
                                         <a href="wire:click.prevent="destroy('{{$item->rowId}}')"><i class="zmdi zmdi-delete"></i></a>
                                     </div>
                                 </div>
-                            @endforeach
+                        @endforeach
+                        </div>
+                        <div class="order-details__count">
+                            <div class="order-details__count__single">
+                                <h5>sub total</h5>
+                                <span class="price">${{Cart::instance('cart')->subtotal()}}</span>
                             </div>
-                            <div class="order-details__count">
-                                <div class="order-details__count__single">
-                                    <h5>sub total</h5>
-                                    <span class="price">${{Cart::instance('cart')->subtotal()}}</span>
-                                </div>
-                                <div class="order-details__count__single">
-                                    <h5>Tax</h5>
-                                    <span class="price">${{Cart::instance('cart')->tax()}}</span>
-                                </div>
-                                <div class="order-details__count__single">
-                                    <h5>Shipping</h5>
-                                    <span class="price">0</span>
-                                </div>
+                            <div class="order-details__count__single">
+                                <h5>Tax</h5>
+                                <span class="price">${{Cart::instance('cart')->tax()}}</span>
                             </div>
-                            <div class="ordre-details__total">
-                                <h5>Order total</h5>
-                                <span class="price">${{Cart::instance('cart')->total()}}</span>
+                            <div class="order-details__count__single">
+                                <h5>Shipping</h5>
+                                <span class="price">0</span>
                             </div>
+                        </div>
+                        <div class="ordre-details__total">
+                            <h5>Order total</h5>
+                            <span class="price">${{Cart::instance('cart')->total()}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- cart-main-area end -->
+    </div>
+    <!-- cart-main-area end -->
+</div>

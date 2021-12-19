@@ -372,7 +372,7 @@
           container.slideToggle();
         });
     };
-    shipToAnother();
+    //shipToAnother();
 
 
 
