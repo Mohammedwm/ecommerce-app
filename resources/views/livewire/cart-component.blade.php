@@ -70,10 +70,13 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="ht__coupon__code">
                                         <span>enter your discount code</span>
+                                        @if (Session::has('coupon_message'))
+                                            <div class="alert alert-danger" role="danger">{{Session::get('coupon_message')}}</div>
+                                        @endif
                                         <div class="coupon__box">
-                                            <input type="text" placeholder="">
+                                            <input type="text" name="coupon-code" wire:model="couponCode"/>
                                             <div class="ht__cp__btn">
-                                                <a href="#">enter</a>
+                                                <a href="#" wire:click.prevent="applyCouponCode">enter</a>
                                             </div>
                                         </div>
                                     </div>
@@ -81,24 +84,48 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12 smt-40 xmt-40">
                                     <div class="htc__cart__total">
                                         <h6>cart total</h6>
-                                        <div class="cart__desk__list">
-                                            <ul class="cart__desc">
-                                                <li>cart total</li>
-                                                <li>tax</li>
-                                                <li>shipping</li>
-                                            </ul>
-                                            <ul class="cart__price">
-                                                <li>${{Cart::instance('cart')->subtotal()}}</li>
-                                                <li>${{Cart::instance('cart')->tax()}}</li>
-                                                <li>0</li>
-                                            </ul>
-                                        </div>
-                                        <div class="cart__total">
-                                            <span>order total</span>
-                                            <span>${{Cart::instance('cart')->total()}}</span>
-                                        </div>
+                                        @if (Session::has('coupon'))
+                                            <div class="cart__desk__list">
+                                                <ul class="cart__desc">
+                                                    <li>cart total</li>
+                                                    <li>Discount ({{Session::get('coupon')['code']}}) <a href="#" wire:click.prevent="removeCoupon"><i class="fa fa-times text-danger"></i></a></li>
+                                                    <li>Subtotal with Discount</li>
+                                                    <li>Tax ({{config('cart.tax')}}%)</li>
+                                                    <li>shipping</li>
+                                                </ul>
+                                                <ul class="cart__price">
+                                                    <li>${{Cart::instance('cart')->subtotal()}}</li>
+                                                    <li>-${{number_format($discount,2)}}</li>
+                                                    <li>${{number_format($subtotalAfterDiscount,2)}}</li>
+                                                    <li>${{number_format($taxAfterDiscount,2)}}</li>
+                                                    <li>0</li>
+                                                </ul>
+                                            </div>
+                                            <div class="cart__total">
+                                                <span>order total</span>
+                                                <span>${{number_format($totalAfterDiscount,2)}}</span>
+                                            </div>
+                                        @else
+                                            <div class="cart__desk__list">
+                                                <ul class="cart__desc">
+                                                    <li>cart total</li>
+                                                    <li>tax</li>
+                                                    <li>shipping</li>
+                                                </ul>
+                                                <ul class="cart__price">
+                                                    <li>${{Cart::instance('cart')->subtotal()}}</li>
+                                                    <li>${{Cart::instance('cart')->tax()}}</li>
+                                                    <li>Free Shipping</li>
+                                                </ul>
+                                            </div>
+                                            <div class="cart__total">
+                                                <span>order total</span>
+                                                <span>${{Cart::instance('cart')->total()}}</span>
+                                            </div>
+                                        @endif
+
                                         <ul class="payment__btn">
-                                            <li class="active"><a href="#">payment</a></li>
+                                            <li class="active"><a href="{{ route('checkout') }}">payment</a></li>
                                             <li><a href="{{ route('shop') }}">continue shopping</a></li>
                                         </ul>
                                     </div>
