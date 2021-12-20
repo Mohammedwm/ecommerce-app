@@ -197,14 +197,14 @@
                                     </div>
                                     <div class="accordion__body">
                                         <div class="paymentinfo">
-                                            {{-- <div class="single-method">
+                                            <div class="single-method">
                                                 <a href="#"><i class="zmdi zmdi-long-arrow-right"></i>Check/ Money Order</a>
-                                            </div> --}}
+                                            </div>
                                             <div class="single-method">
                                                 <a href="#" class="paymentinfo-credit-trigger"><i class="zmdi zmdi-long-arrow-right"></i>Credit Card</a>
                                             </div>
                                             <div class="paymentinfo-credit-content">
-                                                <form action="#">
+                                                <form action="#" >
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="single-input mt-0">
@@ -223,47 +223,25 @@
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="Credit Card Number*">
+                                                                <input type="text" placeholder="Credit Card Number*" wire:model="card_no">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="single-input">
-                                                                <select>
-                                                                    <option>Select Month</option>
-                                                                    <option>Jan</option>
-                                                                    <option>Feb</option>
-                                                                    <option>Mar</option>
-                                                                    <option>Apr</option>
-                                                                    <option>May</option>
-                                                                    <option>Jun</option>
-                                                                    <option>Jul</option>
-                                                                    <option>Aug</option>
-                                                                    <option>Sep</option>
-                                                                    <option>Oct</option>
-                                                                    <option>Nov</option>
-                                                                    <option>Dec</option>
-                                                                </select>
+                                                                <input type="text" name="exp-month" value="" placeholder="MM" wire:model="exp_month">
+                                                                @error('exp_month') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="single-input">
-                                                                <select>
-                                                                    <option>Select Year</option>
-                                                                    <option>2015</option>
-                                                                    <option>2016</option>
-                                                                    <option>2017</option>
-                                                                    <option>2018</option>
-                                                                    <option>2019</option>
-                                                                    <option>2020</option>
-                                                                    <option>2021</option>
-                                                                    <option>2022</option>
-                                                                    <option>2023</option>
-                                                                </select>
+                                                                <input type="text" name="exp-year" value="" placeholder="YYYY" wire:model="exp_year">
+                                                                @error('exp_year') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" placeholder="Card verification number*">
+                                                                <input type="password" name="cvc" value="" placeholder="cvc" wire:model="cvc">
+                                                                @error('cvc') <span class="text-danger">{{$message}}</span>  @enderror
                                                             </div>
                                                         </div>
                                                     </div>
@@ -297,11 +275,11 @@
                         <div class="order-details__count">
                             <div class="order-details__count__single">
                                 <h5>sub total</h5>
-                                <span class="price">${{Cart::instance('cart')->subtotal()}}</span>
+                                <span class="price">${{Session::get('checkout')['subtotal']}}</span>
                             </div>
                             <div class="order-details__count__single">
                                 <h5>Tax</h5>
-                                <span class="price">${{Cart::instance('cart')->tax()}}</span>
+                                <span class="price">${{Session::get('checkout')['tax']}}</span>
                             </div>
                             <div class="order-details__count__single">
                                 <h5>Shipping</h5>
@@ -310,7 +288,7 @@
                         </div>
                         <div class="ordre-details__total">
                             <h5>Order total</h5>
-                            <span class="price">${{Cart::instance('cart')->total()}}</span>
+                            <span class="price">${{Session::get('checkout')['total']}}</span>
                         </div>
                     </div>
                 </div>

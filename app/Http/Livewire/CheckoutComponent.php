@@ -38,7 +38,7 @@ class CheckoutComponent extends Component
     public $s_country;
     public $s_zipcode;
 
-    public $paymentmode;
+    public $paymentmode = 'cod';
     public $thankyou;
 
     public $card_no;
