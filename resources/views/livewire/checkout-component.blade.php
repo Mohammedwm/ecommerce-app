@@ -333,6 +333,11 @@
                             @endforeach
                         </div>
                         <div class="order-details__count">
+
+                            <div class="order-details__count__single">
+                                <h5>Discount</h5>
+                                <span class="price">${{Session::get('checkout')['discount']}}</span>
+                            </div>
                             <div class="order-details__count__single">
                                 <h5>sub total</h5>
                                 <span class="price">${{Session::get('checkout')['subtotal']}}</span>
